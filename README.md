@@ -49,3 +49,8 @@ We utilize the `hashlib` and `os` modules to ensure data integrity:
 1. **Clone the repository:**
    ```bash
    git clone [https://github.com/your-username/secure-login-system.git](https://github.com/your-username/secure-login-system.git)
+   
+2. Run the application:**
+
+```bash
+python main.py
