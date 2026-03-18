@@ -1,4 +1,51 @@
-🛡️ Secure Login SystemA high-integrity Command-Line Interface (CLI) application designed to demonstrate industry-standard user authentication and credential protection. This system moves beyond basic storage by implementing cryptographic salting and key stretching.🚀 Key Features⚡ Smart Registration: Real-time username availability checks.🔐 Hardened Passwords: Enforces strict security policies using Regex:8+ Characters🔠 Uppercase & 🔡 Lowercase🔢 Numerical Digits✨ Special Characters (@$!%#*?&)🚫 Brute-Force Protection: Integrated account lockout mechanism after 3 failed attempts.🛠️ Robust Error Handling: Graceful management of hashing exceptions and invalid inputs.🔒 Security ArchitectureThis project implements a Zero-Plaintext policy. We never store what the user types; we only store the mathematical proof of it.1. The Hashing PipelineWe utilize the hashlib and os modules to ensure data integrity:Cryptographic Salting: Every user receives a unique 16-byte salt via os.urandom(). This prevents "Rainbow Table" attacks where hackers use pre-calculated hashes to crack passwords.PBKDF2-HMAC-SHA256: We use the Password-Based Key Derivation Function 2 with 100,000 iterations. This "key stretching" makes brute-force attacks significantly slower and more difficult for attackers.2. Data PersistenceComponentImplementationStorageIn-memory Dictionary (Simulated)HashingSHA-256Iterations100,000Salt Size128-bit (16 bytes)💻 Getting StartedPrerequisitesPython 3.6+No external dependencies (uses standard library only).Installation & ExecutionClone the repository:Bashgit clone https://github.com/your-username/secure-login-system.git
-Navigate to the folder:Bashcd secure-login-system
-Run the application:Bashpython main.py
-📖 Usage GuideRegister: Create an account. The system will "debug" your password strength in real-time.Login: Enter your credentials. If you fail 3 times, the account status flips to LOCKED.Exit: Securely close the application session.🛡️ DisclaimerThis project is for educational purposes. While it uses strong hashing algorithms, the current "database" is in-memory and will clear when the script ends. For production use, integrate this logic with a persistent database like PostgreSQL or MongoDB.
+# 🛡️ Secure Login System
+
+![Python Version](https://img.shields.io/badge/python-3.x-blue.svg)
+![Security](https://img.shields.io/badge/security-PBKDF2--HMAC-green.svg)
+
+A high-integrity Command-Line Interface (CLI) application designed to demonstrate industry-standard user authentication and credential protection.
+
+---
+
+## 🚀 Key Features
+
+* **⚡ Smart Registration:** Real-time username availability checks.
+* **Enforced Password Policies:**
+    * **8+** Characters
+    * **🔠** Uppercase & **🔡** Lowercase
+    * **🔢** Numerical Digits
+    * **✨** Special Characters (`@$!%#*?&`)
+* **🚫 Brute-Force Protection:** Integrated account lockout after **3 failed attempts**.
+
+---
+
+## 🔒 Security Architecture
+
+This project implements a **Zero-Plaintext** policy. We never store what the user types; we only store the mathematical proof of it.
+
+### 1. The Hashing Pipeline
+We utilize the `hashlib` and `os` modules to ensure data integrity:
+
+* **Cryptographic Salting:** Every user receives a unique **16-byte salt** via `os.urandom()`.
+* **PBKDF2-HMAC-SHA256:** We use the Password-Based Key Derivation Function 2 with **100,000 iterations**.
+
+### 2. Implementation Specs
+| Component | Implementation |
+| :--- | :--- |
+| **Storage** | In-memory Dictionary |
+| **Hashing** | SHA-256 |
+| **Iterations** | 100,000 |
+| **Salt Size** | 128-bit (16 bytes) |
+
+---
+
+## 💻 Getting Started
+
+### Prerequisites
+* **Python 3.6+**
+* No external dependencies required.
+
+### Execution
+1. **Clone the repository:**
+   ```bash
+   git clone [https://github.com/your-username/secure-login-system.git](https://github.com/your-username/secure-login-system.git)
